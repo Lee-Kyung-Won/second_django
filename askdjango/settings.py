@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'dojo',
     'django_extensions',
     'debug_toolbar',
+    'accounts',
+    'shop',
 ]
 
 MIDDLEWARE = [
