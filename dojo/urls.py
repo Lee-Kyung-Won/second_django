@@ -2,6 +2,8 @@ from django.urls import path, re_path
 from . import views
 from . import views_cbv
 
+
+app_name = 'dojo'
 urlpatterns = [
     re_path(r'^sum/(?P<numbers>[\d/]+)/$', views.mysum),
     path('hello/<str:name>/<int:age>', views.hello),
