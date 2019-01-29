@@ -20,13 +20,14 @@ from django.shortcuts import redirect
 from django.urls import path, include
 
 
-# def root(request):
+#def root(request):
 #    return redirect('blog:post_list')
 
 
 urlpatterns = [
     # path('', root, name='root'),
     path('', lambda r: redirect('blog:post_list'), name='root'),
+
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls', namespace='blog')),
     path('dojo/', include('dojo.urls', namespace='dojo')),
