@@ -5,6 +5,17 @@ from django.shortcuts import get_object_or_404, render, redirect
 from .models import Post
 from .forms import PostForm
 
+def generate_view_fn(model):
+    def view_fn(request, id):
+        instance = get_object_or_404(model, id=id)
+        instance_name = model._meta.model_name
+        template_name = '{}/{}_detail.html'.format(model._meta.app_label, instance_name)
+        return render(request, template_name, {
+            instance_name: instance,
+        })
+    return view_fn
+
+post_detail = generate_view_fn(Post)
 
 def post_new(request):
     if request.method == 'POST':
